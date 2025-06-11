@@ -7,11 +7,11 @@ def get_crypto_data():
         "order": "market_cap_desc",
         "per_page": 10,
         "page": 1,
-        "sparkline": True
+        "sparkline": "true"
     }
     response = requests.get(url, params=params)
     
-    if response.status == 200:
+    if response.status_code == 200:
         data = response.json()
         return [
             {
@@ -25,7 +25,7 @@ def get_crypto_data():
                 "total_volume": coin["total_volume"],
                 "high_24h": coin["high_24h"],
                 "low_24h": coin["low_24h"],
-                "sparkline": coin["sparkline_in_7d"]["price"][-20:]
+                "sparkline": coin.get("sparkline_in_7d", {}).get("price", [])[-20:]
             }
             for coin in data
         ]
