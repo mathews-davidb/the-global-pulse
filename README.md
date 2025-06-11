@@ -5,3 +5,4 @@ creating a realtime dashboard using APIs to provide crypto, weather and news inf
 
 APIs
     crypto - CoinGecko
+    weather - OpenWeather
