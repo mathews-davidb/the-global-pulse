@@ -9,23 +9,44 @@ def get_crypto_data():
         "page": 1,
         "sparkline": "true"
     }
-    response = requests.get(url, params=params)
-    
-    if response.status_code == 200:
+
+    try:
+
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        
+        
         data = response.json()
-        return [
-            {
-                "id": coin["id"],
-                "name": coin["name"],
-                "symbol": coin["symbol"].upper(),
-                "image": coin["image"],
-                "current_price": coin["current_price"],
-                "price_change_percentage_24h": coin["price_change_percentage_24h"],
-                "market_cap": coin["market_cap"],
-                "total_volume": coin["total_volume"],
-                "high_24h": coin["high_24h"],
-                "low_24h": coin["low_24h"],
-                "sparkline": coin.get("sparkline_in_7d", {}).get("price", [])[-24:]
-            }
-            for coin in data
-        ]
+        result = []
+
+        for coin in data:
+            result.append(
+                {
+                    "id": coin.get["id"],
+                    "name": coin.get["name"],
+                    "symbol": coin.get["symbol"].upper(),
+                    "image": coin.get["image"],
+                    "current_price": coin.get["current_price"],
+                    "price_change_percentage_24h": coin.get["price_change_percentage_24h"],
+                    "market_cap": coin.get["market_cap"],
+                    "total_volume": coin.get["total_volume"],
+                    "high_24h": coin.get["high_24h"],
+                    "low_24h": coin.get["low_24h"],
+                    "sparkline": coin.get("sparkline_in_7d", {}).get("price", [])[-24:]
+                }
+            )
+        return result
+    
+    except requests.exceptions.RequestException as e:
+        print("Request to CoinGecko failed:", e)
+        return {"error": "Failed to fetch crypto data from CoinGecko"}
+
+    except ValueError as e:
+        print("Failed to parse JSON:", e)
+        return {"error": "Invalid response format from CoinGecko"}
+
+    except Exception as e:
+        print("Unknown error in crypto route:", e)
+        return {"error": "Internal server error in crypto route"}
+
+        
