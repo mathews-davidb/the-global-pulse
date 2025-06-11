@@ -24,6 +24,8 @@ def get_weather_data():
             weather_data.append({
                 "city": city,
                 "temp": data["main"]["temp"],
+                "temp_min": data["main"]["temp_min"],
+                "temp_max": data["main"]["temp_max"],
                 "condition": data["weather"][0]["main"],
                 "icon": data["weather"][0]["icon"]
             })
