@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import services.crypto as crypto
 import services.weather as weather
 import services.news as news
+from models.crypto import CryptoCoin
+from typing import List
 
 app = FastAPI()
 
@@ -18,7 +20,7 @@ app.add_middleware(
 def root():
     return {"message": "Welcome to The Global Pulse API"}
 
-@app.get("/api/crypto")
+@app.get("/api/crypto", response_model=List[CryptoCoin])
 def get_crypto():
     return crypto.get_crypto_data()
 
