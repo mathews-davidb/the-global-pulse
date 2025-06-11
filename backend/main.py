@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import services.crypto as crypto
+import services.weather as weather
 
 app = FastAPI()
 
@@ -19,3 +20,7 @@ def root():
 @app.get("/api/crypto")
 def get_crypto():
     return crypto.get_crypto_data()
+
+@app.get("/api/weather")
+def get_weather():
+    return weather.get_weather_data()
