@@ -10,7 +10,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://potential-space-potato-vwx4qq47j4jhpgr5-3000.app.github.dev"],
+    allow_origins = [
+    "http://localhost:3000",
+    "https://potential-space-potato-vwx4qq47j4jhpgr5-3000.app.github.dev"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

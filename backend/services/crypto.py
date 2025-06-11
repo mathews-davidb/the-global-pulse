@@ -22,16 +22,16 @@ def get_crypto_data():
         for coin in data:
             result.append(
                 {
-                    "id": coin.get["id"],
-                    "name": coin.get["name"],
-                    "symbol": coin.get["symbol"].upper(),
-                    "image": coin.get["image"],
-                    "current_price": coin.get["current_price"],
-                    "price_change_percentage_24h": coin.get["price_change_percentage_24h"],
-                    "market_cap": coin.get["market_cap"],
-                    "total_volume": coin.get["total_volume"],
-                    "high_24h": coin.get["high_24h"],
-                    "low_24h": coin.get["low_24h"],
+                    "id": coin.get("id"),
+                    "name": coin.get("name"),
+                    "symbol": coin.get("symbol").upper(),
+                    "image": coin.get("image"),
+                    "current_price": coin.get("current_price"),
+                    "price_change_percentage_24h": coin.get("price_change_percentage_24h"),
+                    "market_cap": coin.get("market_cap"),
+                    "total_volume": coin.get("total_volume"),
+                    "high_24h": coin.get("high_24h"),
+                    "low_24h": coin.get("low_24h"),
                     "sparkline": coin.get("sparkline_in_7d", {}).get("price", [])[-24:]
                 }
             )
@@ -39,14 +39,14 @@ def get_crypto_data():
     
     except requests.exceptions.RequestException as e:
         print("Request to CoinGecko failed:", e)
-        return {"error": "Failed to fetch crypto data from CoinGecko"}
+        return [{"error": "Failed to fetch crypto data from CoinGecko"}]
 
     except ValueError as e:
         print("Failed to parse JSON:", e)
-        return {"error": "Invalid response format from CoinGecko"}
+        return [{"error": "Invalid response format from CoinGecko"}]
 
     except Exception as e:
         print("Unknown error in crypto route:", e)
-        return {"error": "Internal server error in crypto route"}
+        return [{"error": "Internal server error in crypto route"}]
 
         
