@@ -20,21 +20,15 @@ const App = () => {
       </div>
 
       {/* Horizontal row: crypto and weather */}
-      <div style={{
-        display: 'flex',
-        gap: '2rem',
-        flexWrap: 'wrap',
-        marginBottom: '2rem'
-      }}>
-        <div style={{ flex: '1 1 60%' }}>
+      <div className="layout-row">
+        <div className="layout-left">
           <News />
         </div>
-        <div style={{ flex: '1 1 35%' }}>
+        <div className="layout-right">
           <Weather />
         </div>
       </div>
 
-      {/* News takes full width below */}
       <div>
         <Crypto />
       </div>

@@ -25,7 +25,7 @@ const News = () => {
 
   return (
     <div style={{ padding: '1rem' }}>
-      <h2>Top Headlines</h2>
+      <h2>📰 Top Headlines</h2>
       <ul>
         {news.map((item, index) => (
           <li key={index} style={{ marginBottom: '1rem' }}>

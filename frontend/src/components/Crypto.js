@@ -27,7 +27,7 @@ const Crypto = () => {
 
   return (
     <section style={{ padding: '2rem 0' }}>
-      <h2>Crypto Markets</h2>
+      <h2>📈 Crypto Markets</h2>
       <table style={{
         width: '100%',
         borderCollapse: 'collapse',

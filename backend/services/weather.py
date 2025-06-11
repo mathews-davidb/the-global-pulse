@@ -7,7 +7,7 @@ load_dotenv()
 API_KEY = os.getenv("OPENWEATHER_API_KEY")
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
-cities = ["New York", "New Orleans", "Los Angeles", "Chicago", "Miami"]
+cities = ["New York", "New Orleans", "Los Angeles", "Chicago", "Miami", "Seattle", "Kansas City"]
 
 def get_weather_data():
     weather_data = [];
