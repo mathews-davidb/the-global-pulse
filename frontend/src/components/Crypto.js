@@ -26,8 +26,8 @@ const Crypto = () => {
   },[])
 
   return (
-    <section style={{ padding: '2rem 0' }}>
-      <h2>📈 Crypto Markets</h2>
+    <section style={{ padding: '0 2rem 2rem 2rem' }}>
+      <h2 style={{ marginTop: 0 }}>📈 Crypto Markets</h2>
       <table style={{
         width: '100%',
         borderCollapse: 'collapse',

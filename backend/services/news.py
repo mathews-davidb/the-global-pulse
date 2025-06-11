@@ -10,13 +10,14 @@ USE_MOCK_NEWS = os.getenv("USE_MOCK_NEWS")
 
 def get_news_data():
 
-    if USE_MOCK_NEWS:
-        return MOCK_NEWS
+    # if USE_MOCK_NEWS:
+    #     return MOCK_NEWS
 
     params = {
         "token": API_KEY,
         "lang": "en",
-        "max": 10
+        "max": 4,
+        "country": "us"
     }
 
     response = requests.get(BASE_URL, params=params)
@@ -27,6 +28,8 @@ def get_news_data():
             {
                 "title": article["title"],
                 "url": article["url"],
+                "description": article["description"],
+                "image": article["image"],
                 "source": article["source"]["name"]
             }
             for article in data.get("articles", [])

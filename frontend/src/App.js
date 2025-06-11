@@ -7,7 +7,7 @@ const App = () => {
 
   return (
     <div style={{ padding: '2rem', backgroundColor: 'fff', color: '#000', minHeight: '100vh' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
         <img
           src="/dailypulselogo.png"
           alt="The Daily Pulse logo"
