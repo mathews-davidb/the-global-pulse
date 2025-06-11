@@ -1,6 +1,7 @@
 import './App.css';
 import Crypto from './components/Crypto';
 import Weather from './components/Weather';
+import News from './components/News';
 
 const App = () => {
 
@@ -10,6 +11,7 @@ const App = () => {
       <ul>
         <Crypto />
         <Weather />
+        <News />
       </ul>
     </div>
   );
