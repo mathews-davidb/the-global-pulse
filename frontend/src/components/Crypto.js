@@ -31,8 +31,8 @@ const Crypto = () => {
       <table style={{
         width: '100%',
         borderCollapse: 'collapse',
-        color: '#eee',
-        backgroundColor: '#111'
+        color: '#000',
+        backgroundColor: '#fff'
       }}>
         <thead>
           <tr>
@@ -63,7 +63,7 @@ const Crypto = () => {
                 <td style={tdStyle}>{(coin.total_volume/coin.market_cap*100).toLocaleString()}%</td>
                 <td style={tdStyle}>
                   <Sparklines data={coin.sparkline} width={100} height={30}>
-                    <SparklinesLine color="white" />
+                    <SparklinesLine color="blue" />
                   </Sparklines>
                 </td>
               </tr>
@@ -78,7 +78,7 @@ const Crypto = () => {
 const thStyle = {
   textAlign: 'left',
   padding: '0.75rem',
-  backgroundColor: '#222',
+  backgroundColor: '#fff',
   borderBottom: '2px solid #444'
 };
 

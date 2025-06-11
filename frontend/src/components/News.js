@@ -29,11 +29,20 @@ const News = () => {
       <ul>
         {news.map((item, index) => (
           <li key={index} style={{ marginBottom: '1rem' }}>
-            <a href={item.url} target="_blank" rel="noopener noreferrer">
-              <strong>{item.title}</strong>
+            <a 
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#000',             
+                textDecoration: 'none',    
+                fontWeight: 'bold',
+                fontSize: '1.1rem' 
+              }}>
+              {item.title}
             </a>
             <br />
-            <small>{item.source}</small>
+            {item.source}
           </li>
         ))}
       </ul>

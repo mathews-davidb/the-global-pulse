@@ -25,7 +25,7 @@ const Weather = () => {
 
   return (
     <section style={{ padding: '1rem' }}>
-    <h2 style={{ marginBottom: '1rem' }}>🌤️ Weather Snapshot</h2>
+    <h2 style={{ marginBottom: '1rem' }}>🌤️  Weather Snapshot</h2>
     <div style={{
       display: 'flex',
       flexDirection: 'column',
