@@ -7,7 +7,17 @@ const App = () => {
 
   return (
     <div style={{ padding: '2rem', backgroundColor: 'fff', color: '#000', minHeight: '100vh' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>🌐 Global Pulse</h1>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+        <img
+          src="/dailypulselogo.png"
+          alt="The Daily Pulse logo"
+          style={{
+            width: '100%',
+            maxWidth: '400px',
+            height: 'auto'
+          }}
+        />
+      </div>
 
       {/* Horizontal row: crypto and weather */}
       <div style={{
