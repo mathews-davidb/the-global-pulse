@@ -25,7 +25,7 @@ def get_crypto_data():
                 "total_volume": coin["total_volume"],
                 "high_24h": coin["high_24h"],
                 "low_24h": coin["low_24h"],
-                "sparkline": coin.get("sparkline_in_7d", {}).get("price", [])[-20:]
+                "sparkline": coin.get("sparkline_in_7d", {}).get("price", [])[-24:]
             }
             for coin in data
         ]
