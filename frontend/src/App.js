@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [crypto, setCrypto] = useState([]);
+
+  const getCrypto = async() => {
+    try {
+      const response = await fetch('/api/crypto');
+      const data = await response.json();
+      return data;
+    } catch(error) {
+        console.log('Failed to fetch crypto:', error);
+        return [];
+    }
+  }
+
+  useEffect(() => {
+    const getAPIData = async() =>{
+      const data = await getCrypto();
+      setCrypto(data);
+    }
+
+    getAPIData();
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>The Global Pulse</h1>
+      <ul>
+        {crypto.map((coin) => {
+          return (
+            <li key={coin.id}>
+              {coin.name}: ${coin.current_price}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
+
 
 export default App;
